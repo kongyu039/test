@@ -1,0 +1,168 @@
+// tmpl/posts.less
+@import "/static/scrollbar";
+
+@font-face {
+  font-family: 'MyCustom';
+  src: url('/static/DS-Digital-Bold.ttf') format('truetype');
+}
+
+body {
+  padding-top: 46px;width: 100%;height: 100%;
+  background: #F5F1F1 url("/static/img/default-bg.jpg") no-repeat  center / cover;
+  @media (max-width: 768px) {
+    animation: backgroundMove 8s alternate infinite; // 应用动画
+    @keyframes backgroundMove {
+      0% {background-position: 0 0;}
+      100% {background-position: 100% 0;}
+    }
+  }
+}
+
+.contain {
+  backdrop-filter: blur(1px);
+  background-color: #FFFFFF80;
+  height: 100%;width: 100%;max-height: calc(100vh - 46px);
+  padding: 10px;
+  display: flex;gap: 30px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sidebar-toc {
+    background-color: rgba(158, 226, 236, 0.19);
+    height: 330px;user-select: none;
+    overflow-y: auto;overflow-x: auto;
+    border-radius: 5px;flex: 1;
+
+    > div {width: 100%;}
+
+    @media (max-width: 768px) {
+      position: fixed;
+      left: -330px;
+      transition: left 0.3s ease;
+      background-color: #F2F2F2;
+      &.active {left: 10px;}
+    }
+  }
+
+  .sidebar-toc-btn {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+      position: fixed;
+      left: 10px;
+      font-size: 1.5rem;
+    }
+  }
+
+  .post-main {
+    background-color: #F9FAD93F;
+    box-shadow: 0 0 8px 2px #50D6E8B2;
+    padding: 0.7rem;border-radius: 1rem;
+    flex: 3;overflow-y: auto;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      margin: 0 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .post-header {
+      display: flex; border-bottom: 1px dashed #EAECEF;
+      align-items: center;gap: 10px;padding-bottom: 5px;
+      @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 0 0.5rem 0.5rem;
+      }
+
+      .header-img {
+        flex: 1;
+
+        > img {width: 100%;max-height: 110px;object-fit: cover;}
+      }
+
+      .header-info {
+        flex: 3;
+
+        .post-title {line-height: 1.1;margin: 10px 0;}
+
+        .post-summary {color: #3D4144;text-indent: 1rem;}
+
+        .post-meta {display: flex;flex-wrap: wrap;gap: 10px;}
+      }
+    }
+  }
+
+  .sidebar-author {
+    flex: 1;display: flex;flex-direction: column;
+    align-items: center;
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    .aside-item-author {
+      width: 80%;padding: 6px;border-radius: 6px;
+      background: #FFFFFF1F;backdrop-filter: blur(2px);
+      border: 2px dashed #C1B7A9;
+
+      .user {
+        display: flex;gap: 6px;
+
+        .avatar {width: 75px;height: 75px;}
+      }
+
+      .count {
+        margin-top: 4px;
+        display: flex;justify-content: center;gap: 12px;text-align: center;
+
+        .item {display: flex;flex-direction: column;}
+      }
+    }
+
+    .aside-item-clock {
+      font-family: "MyCustom", "方正姚体", sans-serif;
+      font-weight: bold;font-size: 2rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, #FFB547, #88FF08, #FF7847);
+      -webkit-background-clip: text;color: transparent;
+    }
+
+    .aside-random-post {
+      width: 90%;background-color: #F6EECD33;display: grid;
+      grid-template-rows: 50px 50px minmax(50px, auto);
+      grid-template-columns: 100px 1fr;
+      padding: 5px;grid-gap: 5px;border-radius: 5px;
+
+      > img {grid-row: span 2;align-self: center;}
+
+      > h3 {
+        text-indent: 0.5rem;line-height: 1.2;display: -webkit-box;
+        -webkit-box-orient: vertical;-webkit-line-clamp: 2;
+        overflow: hidden; text-overflow: ellipsis;
+        margin: auto 0;padding: 4px 0;
+
+        &:hover {cursor: pointer;background-color: #90E1FF;}
+      }
+
+      > p {
+        text-indent: 0.5rem;line-height: 1.2;display: -webkit-box;
+        -webkit-box-orient: vertical;-webkit-line-clamp: 2;
+        overflow: hidden; text-overflow: ellipsis;
+        margin: auto 0;
+      }
+
+      > div {
+        grid-column: span 2;display: flex;gap: 5px;
+        flex-wrap: wrap;
+
+        > span {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;-webkit-line-clamp: 2;
+          overflow: hidden; text-overflow: ellipsis;
+
+          > i {color: #A942AF;}
+        }
+      }
+    }
+  }
+}

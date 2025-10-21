@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/sanitize.css">
+  <link rel="stylesheet" href="/static/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/layui/css/layui.css">
+  <script type="text/javascript" src="/static/sql/sql-wasm.min.js"></script>
+  <script type="text/javascript" src="/static/layui/layui.js"></script>
+  <!-- TODO SEO设置 -->
+  <script type="text/javascript" src="/database.js"></script>
+  <script type="text/javascript" src="/static/utils.js"></script>
+  <script type="text/javascript" src="/static/header.js"></script>
+  <link rel="stylesheet" href="/static/header.css">
+  <link rel="stylesheet" href="/index.css">
+  <title>index.html</title>
+</head>
+<body>
+  <!-- 顶部栏 -->
+  <div class="header">
+    <img src="/static/img/default-logo.png" alt="默认Logo" data-event="home">
+    <div><span data-event="home">首页</span><span data-event="post">文章</span><span data-event="about">关于我</span></div>
+    <span data-event="site">🏠主站</span>
+  </div>
+  <div>
+    <!-- 标语 -->
+    <div class="slogan"><span>世间有我，天下快哉，我亦快哉。</span></div>
+    <!-- 主内容 -->
+    <div class="layui-fluid contain layui-row" style="height: calc(100vh - 222px)">
+      <!-- 主内容-左 -->
+      <div class="layui-col-md2 layui-col-md-offset1 layui-col-sm12 contain-left">
+        <div class="expansion">
+          <div class="avatar">
+            <img src="/static/img/default-avatar1.jpg" alt="头像" onerror="this.onerror=null;this.src='/default-cover.png'">
+          </div>
+          <h3 class="name">名称</h3>
+          <div class="excerpt">摘抄</div>
+          <div class="show-info">
+            <div>
+              <div><i class="fa fa-coffee"></i>&ensp;<span>文章</span></div>
+              <span class="post-count"></span>
+            </div>
+            <div>
+              <div><i class="fa fa-tags"></i>&ensp;<span>标签</span></div>
+              <span class="tag-count"></span>
+            </div>
+            <div>
+              <div><i class="fa fa-th-large"></i>&ensp;<span>分类</span></div>
+              <span class="category-count"></span>
+            </div>
+          </div>
+        </div>
+        <!-- 分享 social-account 社交账户 -->
+        <div class="sharing">
+          <div><img src="/static/img/share-qq.svg" alt="QQ"></div>
+          <div><img src="/static/img/sharing-bilibili.svg" alt="哔哩哔哩"></div>
+          <div><img src="/static/img/sharing-douyin.svg" alt="抖音"></div>
+          <div><img src="/static/img/sharing-email.svg" alt="邮件"></div>
+          <div><img src="/static/img/sharing-github.svg" alt="github"></div>
+          <div><img src="/static/img/sharing-wechat.svg" alt="微信"></div>
+          <div><img src="/static/img/sharing-twitter.svg" alt="推特"></div>
+          <div><img src="/static/img/sharing-xianyu.svg" alt="闲鱼"></div>
+          <div><img src="/static/img/sharing-zhihu.svg" alt="知乎"></div>
+          <div><img src="/static/img/sharing-xiaohongshu.svg" alt="小红书"></div>
+        </div>
+      </div>
+      <!-- 主内容-右 -->
+      <div class="layui-col-md7 layui-col-md-offset1 layui-col-sm12 contain-right">
+        <h1>随机文章</h1>
+        <div class="random-post"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/html" id="postItemTmpl">
+    <div class="post-item">
+      <div class="post-cover">
+        <!--suppress HtmlUnknownTarget -->
+        <img src="{{= d.cover }}" alt="{{= d.title }}" onerror="this.error=null;this.src='/static/img/default-cover.png'" />
+      </div>
+      <div class="post-info">
+        <h2 data-url="{{= d.postUrl }}">{{= d.title }}</h2>
+        <span>{{= d.summary }}</span>
+        <div class="other">
+          <span><i class="fa fa-calendar layui-font-orange"></i>&ensp;{{= d.createdAt }}</span>
+          <span><i class="fa fa-th-large layui-font-green"></i>&ensp;{{= d.categoryName }}</span>
+          <span><i class="fa fa-tags layui-font-purple"></i>&ensp;{{= d.tagNameStr}}</span>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script type="text/javascript" src="/index.js"></script>
+</body>
+</html>

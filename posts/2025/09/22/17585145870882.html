@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/sanitize.css">
+  <link rel="stylesheet" href="/static/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/vditor/dist/index.css" />
+  <script type="text/javascript" src="/database.js"></script>
+  <script type="text/javascript" src="/static/utils.js"></script>
+  <script type="text/javascript" src="/static/header.js"></script>
+  <script type="text/javascript" src="/static/vditor/dist/method.js"></script>
+  <script type="text/javascript" src="/static/sql/sql-wasm.min.js"></script>
+  <link rel="stylesheet" href="/static/header.css">
+  <link rel="stylesheet" href="/posts.css">
+  <!-- TODO SEO设置 -->
+  <title>关于我</title>
+</head>
+<body>
+  <!-- 顶部栏 -->
+  <div class="header">
+    <img src="/static/img/default-logo.png" alt="logo" data-event="home">
+    <div><span data-event="home">首页</span><span data-event="post">文章</span><span data-event="about">关于我</span></div>
+    <span data-event="site">🏠主站</span>
+  </div>
+  <!-- 主要内容 -->
+  <div class="contain">
+    <!-- 文章目录索引 -->
+    <div class="sidebar-toc">
+      <div style="display: block;"></div>
+    </div>
+    <div class="sidebar-toc-btn">📇</div>
+    <!-- 文章主要 -->
+    <div class="post-main">
+      <!-- 文章头信息 -->
+      <div class="post-header">
+        <div class="header-img">
+          <img src="https://blog-pic.kongyu039.dpdns.org/2025/09/22/8FDA501C115E00970FC611D522F63D2F.png" alt="关于我" onerror="this.onerror=null;this.src='/static/img/default-cover.png'">
+        </div>
+        <div class="header-info">
+          <h1 class="post-title">关于我</h1>
+          <p class="post-summary">关于我的文章概括或摘要关于我的文章概括或摘要</p>
+          <div class="post-meta">
+            <span><i class="fa fa-calendar">&ensp;</i><span>2025/01/01 12:00</span></span>
+            <span><i class="fa fa-pencil">&ensp;</i><span>2025/01/01 12:00</span></span>
+            <span><i class="fa fa-file-word-o">&ensp;</i><span>589</span></span>
+            <span><i class="fa fa-th-large">&ensp;</i><span>杂谈随笔</span></span>
+            <span><i class="fa fa-tags">&ensp;</i><span>关于我</span></span>
+          </div>
+        </div>
+      </div>
+      <!-- 文章内容 -->
+      <div class="post-content">
+        <div><h1>随机生成的Markdown文章</h1>
+<hr />
+<h2>引言</h2>
+<p>在这个信息爆炸的时代，Markdown作为一种轻量级标记语言，越来越受到人们的关注。它不仅简单易学，而且在各种平台上都能得到很好的支持。</p>
+<h2>Markdown的基本语法</h2>
+<h3>标题</h3>
+<p>Markdown使用 <code>#</code>符号来表示标题。<code>#</code>的数量表示标题的级别。例如：</p>
+<pre><code class="language-markdown"># 这是一个一级标题
+## 这是一个二级标题
+### 这是一个三级标题
+</code></pre>
+<h3>列表</h3>
+<p>Markdown支持有序和无序列表：</p>
+<ul>
+<li>无序列表使用 <code>-</code>、<code>*</code>或 <code>+</code>表示：
+<ul>
+<li>项目1</li>
+<li>项目2
+<ul>
+<li>子项目1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>有序列表使用数字加点表示：
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+</li>
+</ol>
+<h3>链接和图片</h3>
+<p>您可以轻松地插入链接和图片：</p>
+<ul>
+<li><a href="https://www.example.com">这是一个链接</a></li>
+<li><img src="https://tc.alcy.cc/q/20250908/16245623494abd33ccd0d1ee613c90e6.webp" alt="这是一个图片" /></li>
+</ul>
+<h2>结论</h2>
+<p>Markdown因其简洁和高效，已成为许多开发者和作家的首选工具。无论是撰写文档、博客文章，还是制作幻灯片，Markdown都能提供良好的体验。希望本文能帮助您更好地理解Markdown的使用！</p></div>
+      </div>
+    </div>
+    <!-- 侧边栏作者信息 -->
+    <div class="sidebar-author">
+      <div class="aside-item-author">
+        <div class="user">
+          <img class="avatar" src="/static/img/default-avatar3.jpg" alt="头像">
+          <div>
+            <span>用户名</span>
+            <p>谏言</p>
+          </div>
+        </div>
+        <div class="count">
+          <div class="item"><span class="num">0</span><span>文章数</span></div>
+          <div class="item"><span class="num">0</span><span>分类数</span></div>
+          <div class="item"><span class="num">0</span><span>标签数</span></div>
+        </div>
+      </div>
+      <div class="aside-item-clock">N年N天N时N分</div>
+      <div class="aside-random-post"></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    const initMarkdown = `# 随机生成的Markdown文章
+
+---
+
+## 引言
+
+在这个信息爆炸的时代，Markdown作为一种轻量级标记语言，越来越受到人们的关注。它不仅简单易学，而且在各种平台上都能得到很好的支持。
+
+## Markdown的基本语法
+
+### 标题
+
+Markdown使用 \`#\`符号来表示标题。\`#\`的数量表示标题的级别。例如：
+
+\`\`\`markdown
+# 这是一个一级标题
+## 这是一个二级标题
+### 这是一个三级标题
+\`\`\`
+
+### 列表
+
+Markdown支持有序和无序列表：
+
+- 无序列表使用 \`-\`、\`*\`或 \`+\`表示：
+  - 项目1
+  - 项目2
+    - 子项目1
+
+1. 有序列表使用数字加点表示：
+   1. 第一项
+   2. 第二项
+
+### 链接和图片
+
+您可以轻松地插入链接和图片：
+
+- [这是一个链接](https://www.example.com)
+- ![这是一个图片](https://tc.alcy.cc/q/20250908/16245623494abd33ccd0d1ee613c90e6.webp)
+
+## 结论
+
+Markdown因其简洁和高效，已成为许多开发者和作家的首选工具。无论是撰写文档、博客文章，还是制作幻灯片，Markdown都能提供良好的体验。希望本文能帮助您更好地理解Markdown的使用！`
+  </script>
+  <script type="text/javascript" src="/posts.js"></script>
+</body>
+</html>

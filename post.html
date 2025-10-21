@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/sanitize.css">
+  <link rel="stylesheet" href="/static/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/layui/css/layui.css">
+  <script type="text/javascript" src="/static/sql/sql-wasm.min.js"></script>
+  <script type="text/javascript" src="/static/layui/layui.js"></script>
+  <script type="text/javascript" src="/static/xm-select.js"></script>
+  <!-- TODO SEO设置 -->
+  <script type="text/javascript" src="/database.js"></script>
+  <script type="text/javascript" src="/static/utils.js"></script>
+  <script type="text/javascript" src="/static/header.js"></script>
+  <link rel="stylesheet" href="/static/header.css">
+  <link rel="stylesheet" href="/post.css">
+  <title>post.html</title>
+</head>
+<body>
+  <!-- 顶部栏 -->
+  <div class="header">
+    <img src="/static/img/default-logo.png" alt="默认Logo" data-event="home">
+    <div><span data-event="home">首页</span><span data-event="post">文章</span><span data-event="about">关于我</span></div>
+    <span data-event="site">🏠主站</span>
+  </div>
+  <div class="layui-row layui-fluid contain">
+    <div class="layui-col-md-offset1 layui-col-md7 layui-col-sm12">
+      <div class="contain-left">
+        <!-- 公告 -->
+        <div class="announcement"><span>📢公告</span><span class="announcement-content">公告内容</span></div>
+        <!-- 搜索框 -->
+        <form class="layui-form layui-form-pane search-form" lay-filter="search-form">
+          <div class="layui-inline">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-inline title">
+              <input type="text" name="title" autocomplete="off" class="layui-input" placeholder="可输入标题">
+            </div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">摘要</label>
+            <div class="layui-input-inline summary">
+              <input type="text" name="summary" autocomplete="off" class="layui-input" placeholder="可输入摘要">
+            </div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">分类</label>
+            <div class="layui-input-inline category"><select name="categoryId" lay-filter="category"></select></div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">标签</label>
+            <div class="layui-input-inline tags"></div>
+          </div>
+          <div class="layui-inline">
+            <button class="layui-btn" lay-submit lay-filter="search-submit">确认</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+        </form>
+        <!-- 数据文章表+自定义换页+固定高度+auto滚动条 -->
+        <div class="post-list"></div>
+        <div class="post-page"></div>
+      </div>
+    </div>
+    <div class="layui-col-md-offset1 layui-col-md2 layui-show-md-block layui-hide-sm layui-hide-xs">
+      <div class="contain-right">
+        <div class="avatar">
+          <img src="/static/img/default-avatar2.jpg" alt="头像">
+          <h3 style="font-size: 16px" class="name">名称</h3>
+          <h3 style="font-size: 14px;font-weight: normal;" class="excerpt">摘要</h3>
+          <div style="color:#DC9090;">
+            <span><i class="fa fa-coffee"></i>文章&ensp;<i class="post-count">0</i></span>
+            <span><i class="fa fa-th-large"></i>分类&ensp;<i class="category-count">0</i></span>
+            <span><i class="fa fa-tags"></i>标签&ensp;<i class="tag-count">0</i></span>
+          </div>
+        </div>
+        <div class="category"></div>
+        <div class="tag"></div>
+        <div class="timeline">
+          <span>总数&ensp;<i>0</i></span>
+          <label for="numberInput">时间轴
+            <input type="number" id="numberInput" min="2024" step="1" max="2099" onkeydown="return false;">
+          </label>
+          <div class="timeline-content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/html" id="postItemTmpl">
+    <div class="post-item">
+      <div class="post-cover">
+        <!--suppress HtmlUnknownTarget -->
+        <img src="{{= d.cover }}" alt="{{= d.title }}" onerror="this.error=null;this.src='/static/img/default-cover.png'" />
+      </div>
+      <div class="post-info">
+        <h2 data-url="{{= d.postUrl }}">{{= d.title }}</h2>
+        <span>{{= d.summary }}</span>
+        <div class="other">
+          <span><i class="fa fa-calendar layui-font-orange"></i>&ensp;{{= d.createdAt }}</span>
+          <span><i class="fa fa-th-large layui-font-green"></i>&ensp;{{= d.categoryName }}</span>
+          <span><i class="fa fa-tags layui-font-purple"></i>&ensp;{{= d.tagNameStr}}</span>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script type="text/javascript" src="/post.js"></script>
+</body>
+</html>

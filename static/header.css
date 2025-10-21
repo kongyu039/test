@@ -1,0 +1,46 @@
+.header {
+  padding: 0 16px;
+  z-index: 1;
+  user-select: none;
+  height: 46px;
+  line-height: 46px;
+  width: 100%;
+  background: #7F7F7F;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Courier New", Consolas, "Lucida Console", monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.header > img {
+  padding: 0 8px;
+  background-color: #FDF6CA;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px 0;
+}
+.header > img:hover {
+  background-color: #7392A4;
+}
+.header > div > span {
+  margin: 0 1px;
+  padding: 0 4px;
+  display: inline-block;
+  width: fit-content;
+  text-align: center;
+  cursor: pointer;
+}
+.header > div > span:hover {
+  color: #FFFFFF;
+  background-color: #7392A4;
+}
+.header > span {
+  padding: 0 8px;
+  cursor: pointer;
+}
+.header > span:hover {
+  color: #FFFFFF;
+}

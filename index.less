@@ -1,0 +1,147 @@
+// z_test/index.less
+body {
+  padding-top: 46px;width: 100vw;height: 100vh;
+  user-select: none;
+  background: #F0F0F5 url("/static/img/default-bg.png") no-repeat  center / cover;
+  @media (max-width: 768px) {
+    animation: backgroundMove 8s alternate infinite; /* 应用动画 */
+  }
+
+  > div:last-of-type { overflow-y: auto;}
+
+  @keyframes backgroundMove {
+    0% {background-position: 0 0;}
+    100% {background-position: 100% 0;}
+  }
+}
+
+.slogan {
+  height: 150px;line-height: 3rem;
+  font-size: 3rem;font-family: "隶书", serif;text-align: center;
+  display: flex;flex-direction: column;justify-content: center;align-items: center;
+  margin: 0 8px;
+
+  > span {
+    background-color: #D1D8D3;
+    padding: 1px 6px;
+    border-radius: 6px;
+
+    &::after {content: "|";animation: blinking 444ms infinite;}
+  }
+
+  /* 定义闪烁动画效果 */
+  @keyframes blinking {
+    0%, 100% {opacity: 0;}
+    50% {opacity: 1; }
+  }
+}
+
+.contain {
+  .contain-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .expansion {
+      padding: 10px 0;
+      background: linear-gradient(to bottom right, #BEBEE9A0, #F2F667A0);
+      backdrop-filter: blur(3px);
+      box-shadow: 0 0 5px 5px #A2FCBC80;
+      border-radius: 4px;height: 350px;
+      display: flex;flex-direction: column;
+      // justify-content: space-evenly;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;gap: 10px;
+
+      .avatar {
+        width: 50%;aspect-ratio: 1/1;
+
+        > img {width: 100%;height: 100%;object-fit: cover;border-radius: 50%;}
+      }
+
+      .show-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+      }
+    }
+
+    .sharing {
+      height: 200px;
+      background-color: #BEBEE9A0;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 0 2px 2px #FFD69090;
+      border-radius: 4px;
+      display: grid;
+      padding: 8px;
+      grid-template-columns: repeat(4, 1fr);
+
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .contain-right {
+    @media (max-width: 768px) {
+      margin-top: 8px;
+    }
+    padding-left: 8px;
+
+    h1 {font-family: "SimSun", serif;}
+
+    .random-post {
+      gap: 8px; display: grid;
+      grid-template-columns: repeat(2, 1fr); // 2列n行
+      @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr); // 1列n行
+      }
+      grid-auto-rows: minmax(140px, 160px);
+
+      div.post-item {
+        background-color: #76F5C060;
+        padding: 4px;display: flex;gap: 4px;
+        backdrop-filter: blur(2px);border-radius: 4px;
+        box-shadow: 0 0 15px #FFADADA0;
+
+        div.post-cover {
+          flex: 1; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAM9JREFUWIXtlrERwzAIRcGXJmWWyFzRZMpcXsKly6SRLz4MCEl2pAJK8ONzB8jgvKwf+Fl4Pu5vUGxe1hcARCFczE8kHtMHNeJVPC1ATGIQr+InAAi5JIp4aOXRIABSbOt3C4+GKjk7DFstj3uvMYk46TU80ujZa5bjuS34q43Tgq5D2HMNbxq8E+CSxOS3FCjySH5GB3izq1rEbQE7ZMnHPbtNPC1A3XNDEcV893fA7wG/B8Z4iguT+D1wqo3TAr8HMgJcEr8HzOIa3/0e+ALpNVc4C4uODwAAAABJRU5ErkJggg==") repeat center;
+
+          img {width: 100%;height: 100%;border-radius: 4px;object-fit: cover;}
+        }
+
+        div.post-info {
+          @media (max-width: 768px) {
+            flex: 2;
+          }
+          flex: 3;display: flex;flex-direction: column;
+          justify-content: space-between;
+
+          > h2 {
+            text-indent: 0.3rem;letter-spacing: 0.1rem;cursor: pointer;
+            font-family: "XiaolaiMonoSC", cursive, sans-serif;
+
+            &:hover {color: #F7FCFC;background-color: #209FE3}
+          }
+
+          > span {
+            text-indent: 1rem;font-size: 1rem;letter-spacing: 0.1rem;color: #3B3A3A;
+            display: -webkit-box; -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; overflow: hidden; text-overflow: ellipsis;
+          }
+
+          > div {
+            font-family: "Noto Serif SC", "EB Garamond", serif;
+            display: flex;gap: 4px;
+            border-top: 1px solid #E7E7E8;
+            overflow-y: auto;
+          }
+        }
+      }
+    }
+  }
+}
